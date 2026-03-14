@@ -48,3 +48,11 @@ htmlcov/
 # Misc
 *.swp
 *~
+
+# word2vec — trained embeddings (large; regenerate with train.py)
+*.npy
+
+# word2vec — runtime-generated files (recreated automatically on first run)
+word2vec/vocab.json
+word2vec/questions-words.txt
+word2vec/dataset/

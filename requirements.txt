@@ -1,1 +1,15 @@
-numpy>=1.24
+numpy
+
+# GPU support (optional) — uncomment the lines matching your CUDA version:
+#   Run:  nvidia-smi  and look for "CUDA Version: 12.x" or "11.x"
+#
+# CUDA 12.x (RTX 4060 Ti with recent drivers):
+# cupy-cuda12x
+# nvidia-curand-cu12
+# nvidia-cublas-cu12
+# nvidia-cufft-cu12
+# nvidia-cuda-nvrtc-cu12
+# nvidia-cuda-runtime-cu12
+#
+# CUDA 11.x:
+# cupy-cuda11x
