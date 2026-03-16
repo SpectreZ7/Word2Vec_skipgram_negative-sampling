@@ -64,7 +64,7 @@ requirements.txt — dependencies (NumPy; CuPy optional for GPU)
 ## Installation
 
 ```bash
-git clone https://github.com/SpectreZ7/Hallucination_Detection.git
+git clone https://github.com/SpectreZ7/Word2Vec_skipgram_negative-sampling.git
 cd Hallucination_Detection
 pip install -r requirements.txt
 ```
@@ -126,8 +126,7 @@ Runs two evaluations:
 | 1      | ~0.8%           |
 | 3      | ~5.7%           |
 
-The published word2vec result on text8 (~35–45%) uses 15 iterations, 200-dimensional
-vectors, and a less aggressive subsampling threshold (`t = 1e-3` vs `1e-5` here).
-The lower accuracy reflects those hyperparameter differences, not a bug in the
+The published word2vec result on text8 (~35–45%) uses 15 iterations and 200-dimensional
+vectors. The lower accuracy reflects those hyperparameter differences, not a bug in the
 implementation — the nearest-neighbour results show correct semantic clustering
 (countries near countries, numbers near numbers, tech terms together).
