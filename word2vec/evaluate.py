@@ -21,6 +21,8 @@ Two evaluation methods:
 
 Run:
     python word2vec/evaluate.py
+or to run a specific embedding file:
+    python word2vec/evaluate.py path/to/embeddings.npy
 """
 
 import os

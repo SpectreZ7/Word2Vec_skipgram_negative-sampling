@@ -7,7 +7,7 @@ from collections import Counter
 
 
 # ---------------------------------------------------------------------------
-# Low-level helpers (unchanged from original)
+# Low-level helpers 
 # ---------------------------------------------------------------------------
 
 def load_data(file_path):
