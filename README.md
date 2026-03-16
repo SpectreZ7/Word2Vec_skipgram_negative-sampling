@@ -1,7 +1,7 @@
-# Word2Vec — Skip-Gram with Negative Sampling (pure NumPy)
+# Word2Vec - Skip-Gram with Negative Sampling (pure NumPy)
 
 Skip-gram Word2Vec trained on the [text8](http://mattmahoney.net/dc/text8.zip) dataset.
-The full training loop — forward pass, loss, gradients, and parameter updates — is
+The full training loop - forward pass, loss, gradients, and parameter updates - is
 implemented from scratch in NumPy (with optional CuPy GPU acceleration).
 
 ---
@@ -39,9 +39,9 @@ Full derivation with intermediate steps is in [`word2vec/model.py`](word2vec/mod
 
 | Choice | Detail |
 |--------|--------|
-| Two embedding matrices | `W_in` (centre role) and `W_out` (context role) — asymmetric by design |
-| Noise distribution | `P_noise(w) ∝ freq(w)^0.75` — smooths rare words into sampling |
-| Subsampling | `P(keep\|w) = min(√(t / f(w)), 1)`, `t = 1e-5` — discards frequent words |
+| Two embedding matrices | `W_in` (centre role) and `W_out` (context role) - asymmetric by design |
+| Noise distribution | `P_noise(w) ∝ freq(w)^0.75` - smooths rare words into sampling |
+| Subsampling | `P(keep\|w) = min(√(t / f(w)), 1)`, `t = 1e-5` - discards frequent words |
 | Dynamic window | Window radius sampled from `[1, max_window]` per centre word |
 | LR schedule | Linear decay `0.025 → 1e-4` across the entire training run |
 | GPU batching | Processes 512 pairs per kernel call (one kernel per pair would be slower than CPU) |
@@ -52,11 +52,11 @@ Full derivation with intermediate steps is in [`word2vec/model.py`](word2vec/mod
 
 ```
 word2vec/
-  model.py       — Word2Vec class, sigmoid, batched forward/backward
-  preprocess.py  — vocab building, subsampling, negative-sampling table
-  train.py       — multi-epoch training loop with GPU batching
-  evaluate.py    — nearest neighbours + Google analogy benchmark (3CosAdd)
-requirements.txt — dependencies (NumPy; CuPy optional for GPU)
+  model.py       - Word2Vec class, sigmoid, batched forward/backward
+  preprocess.py  - vocab building, subsampling, negative-sampling table
+  train.py       - multi-epoch training loop with GPU batching
+  evaluate.py    - nearest neighbours + Google analogy benchmark (3CosAdd)
+requirements.txt - dependencies (NumPy; CuPy optional for GPU)
 ```
 
 ---
@@ -110,8 +110,8 @@ python word2vec/evaluate.py word2vec/embeddings_epoch1.npy
 
 Runs two evaluations:
 
-1. **Nearest neighbours** — cosine similarity lookup for probe words (`king`, `france`, `computer`, …)
-2. **Google analogy benchmark** — 3CosAdd over ~19,500 questions ([Mikolov et al. 2013](https://arxiv.org/abs/1301.3781)):
+1. **Nearest neighbours** - cosine similarity lookup for probe words (`king`, `france`, `computer`, …)
+2. **Google analogy benchmark** - 3CosAdd over ~19,500 questions ([Mikolov et al. 2013](https://arxiv.org/abs/1301.3781)):
    ```
    w* = argmax cos(w,  v_b − v_a + v_c)   s.t. w ∉ {a, b, c}
    ```
@@ -128,5 +128,5 @@ Runs two evaluations:
 
 The published word2vec result on text8 (~35–45%) uses 15 iterations and 200-dimensional
 vectors. The lower accuracy reflects those hyperparameter differences, not a bug in the
-implementation — the nearest-neighbour results show correct semantic clustering
+implementation - the nearest-neighbour results show correct semantic clustering
 (countries near countries, numbers near numbers, tech terms together).
